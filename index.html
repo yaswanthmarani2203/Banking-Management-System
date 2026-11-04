@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SecureBank Management System</h1>
+            <p>Manage customer accounts, track balances, and update details</p>
+        </header>
+
+        <!-- Form Section -->
+        <div class="card form-card">
+            <h2 id="form-title">Open New Account</h2>
+            <form id="bank-form">
+                <input type="hidden" id="original-acc" value="">
+                
+                <div class="form-group">
+                    <label for="acc-number">Account Number</label>
+                    <input type="text" id="acc-number" placeholder="e.g., ACC-1001" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="acc-holder">Account Holder Name</label>
+                    <input type="text" id="acc-holder" placeholder="e.g., John Smith" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="acc-type">Account Type</label>
+                    <select id="acc-type" required>
+                        <option value="">Select Account Type</option>
+                        <option value="Savings">Savings Account</option>
+                        <option value="Current">Current Account</option>
+                        <option value="Fixed Deposit">Fixed Deposit</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="acc-balance">Initial Balance ($)</label>
+                    <input type="number" id="acc-balance" step="0.01" min="0" placeholder="e.g., 1500.00" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn" class="btn btn-primary">Create Account</button>
+                    <button type="button" id="cancel-btn" class="btn btn-secondary" style="display: none;">Cancel Edit</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Accounts Table Section -->
+        <div class="card table-card">
+            <div class="table-header">
+                <h2>Account Records</h2>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search accounts...">
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table id="bank-table">
+                    <thead>
+                        <tr>
+                            <th>Account Number</th>
+                            <th>Holder Name</th>
+                            <th>Type</th>
+                            <th>Balance ($)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bank-table-body">
+                        <!-- Dynamic rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="empty-state" class="empty-state" style="display: none;">
+                No bank accounts found. Open a new account above!
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
